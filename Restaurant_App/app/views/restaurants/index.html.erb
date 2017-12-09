@@ -1,12 +1,11 @@
 <h1>Favorite Restaurants</h1>
 
-
+<ul>
     <% @restaurants.each do |restaurant|%>
 
-    <h2><%= restaurant.name%></h2>
-    <p>Type of food: <%= restaurant.kind %></p>
-    <p>Favorite dish: <%= restaurant.bestdish %></p>
-
+   <li> <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2> </il>
+    
     <% end %>
+</ul>
 
 </ul>
