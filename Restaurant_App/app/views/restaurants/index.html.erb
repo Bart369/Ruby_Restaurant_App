@@ -1,11 +1,11 @@
 <h1>Favorite Restaurants</h1>
 
-<ul>
+
     <% @restaurants.each do |restaurant|%>
 
-    <l1><h2><%= restaurant.name%></h2><br>
-    <p>Type of food: <%= restaurant.kind %></p><br>
-    <p>Favorite dish: <%= restaurant.bestdish %></p></li>
+    <h2><%= restaurant.name%></h2>
+    <p>Type of food: <%= restaurant.kind %></p>
+    <p>Favorite dish: <%= restaurant.bestdish %></p>
 
     <% end %>
 
