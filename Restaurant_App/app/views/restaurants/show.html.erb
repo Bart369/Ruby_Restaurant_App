@@ -7,6 +7,7 @@
 
 <button><%= link_to "See list of favorite restaurants", restaurants_path %></button>
 
+<%# I guess this saves it to restaurant.destroy %>
 <%= form_for @restaurant, html: {method: "delete"} do |f| %>
   <%= f.submit "Delete #{@restaurant.name}?!?!?" %>
 <% end %>

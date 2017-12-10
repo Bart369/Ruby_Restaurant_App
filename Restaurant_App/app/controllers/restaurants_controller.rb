@@ -37,6 +37,11 @@ class RestaurantsController < ApplicationController
 
     def destroy 
         @restaurant = Restaurant.find(params[:id])
+        if @restaurant.destroy
+            redirect_to restaurants_path
+        else
+            redirect_to restaurant_path(@restaurant)
+        end
     end
 
     #private must always be last
