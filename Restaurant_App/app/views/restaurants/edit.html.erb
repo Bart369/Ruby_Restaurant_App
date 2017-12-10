@@ -1,0 +1,6 @@
+<%= form_for @restaurant do |f| %>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.text_field :kind, placeholder: "What type of food" %>
+  <%= f.text_field :bestdish, placeholder: "Favorite dish" %>
+  <%= f.submit "Add new favorite restaurant"%>
+<% end %>

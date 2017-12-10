@@ -21,6 +21,20 @@ class RestaurantsController < ApplicationController
         end
     end
 
+    def edit
+        @restaurant = Restaurant.find(params[:id])
+    end
+
+    def update
+        @restaurant = Restaurant.find(params[:id])
+        #when we hit submit in our edit form, it gets saved at restaurant.update
+        if  @restaurant.update(restaurant_params)
+        redirect_to restaurant_path(@restaurant)
+        else
+        redirect_to restaurant_edit_path(@restaurant)
+        end
+  end
+
     private
 
     def restaurant_params

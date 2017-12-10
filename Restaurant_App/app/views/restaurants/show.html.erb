@@ -3,4 +3,6 @@
 <p>Type of food: <%= @restaurant.kind %></p>
 <p>Favorite dish: <%= @restaurant.bestdish %></p>
 
-<%= link_to "See list of favorite restaurants", restaurants_path %>
+<button><%= link_to "Edit #{@restaurant.name}", edit_restaurant_path(@restaurant) %></button>
+
+<button><%= link_to "See list of favorite restaurants", restaurants_path %></button>
