@@ -6,3 +6,7 @@
 <button><%= link_to "Edit #{@restaurant.name}", edit_restaurant_path(@restaurant) %></button>
 
 <button><%= link_to "See list of favorite restaurants", restaurants_path %></button>
+
+<%= form_for @restaurant, html: {method: "delete"} do |f| %>
+  <%= f.submit "Delete #{@restaurant.name}?!?!?" %>
+<% end %>

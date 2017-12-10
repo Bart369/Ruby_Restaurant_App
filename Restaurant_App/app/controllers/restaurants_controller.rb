@@ -33,8 +33,13 @@ class RestaurantsController < ApplicationController
         else
         redirect_to restaurant_edit_path(@restaurant)
         end
-  end
+    end
 
+    def destroy 
+        @restaurant = Restaurant.find(params[:id])
+    end
+
+    #private must always be last
     private
 
     def restaurant_params
