@@ -17,9 +17,10 @@ class ApplicationController < ActionController::Base
     # we could do the above but this would require running User.find_by everytime which is a very
     # expensive method. Instead we can cache the info after running once so that we only need to 
     # run it once and just check the cache
-    
-    
 
+    #the first time the app searches for current user it will run the methods 
+    # in find_current_user, but every other time the info will be cached (stored)
+    # so it wont have to run the methods again making finding current much cheaper 
     def current_user
       #if @current_user is nil /false, run find_current_user
       @current_user ||= find_current_user
@@ -30,9 +31,13 @@ class ApplicationController < ActionController::Base
       token && User.find_by(session_token: token)
     end
 
-    #the first time the app searches for current user it will run the methods 
-    # in find_current_user, but every other time the info will be cached (stored)
-    # so it wont have to run the methods again making finding current much cheaper 
+    # to ensure a user is signed in before visiting a page
+    def ensure_signed_in
+      return if current_user
+      flash[:error] = 'you must be signed in to be here'
+      redirect_to root
+    end
+
 
     def sign_out
       session.delete(:session_token)

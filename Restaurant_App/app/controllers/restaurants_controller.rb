@@ -1,5 +1,8 @@
 class RestaurantsController < ApplicationController
 
+    #this is to check if users are signed, this is coming from application controller
+    before_action :ensure_signed_in
+
     def index
         @restaurants = Restaurant.all
     end
