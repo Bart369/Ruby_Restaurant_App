@@ -6,11 +6,10 @@ class RestaurantsController < ApplicationController
     def index
         # @restaurants = Restaurant.all changed to the below
         @restaurants = current_user.restaurants.all
-        
     end
 
     def show
-        @restaurant = current_user.restaurant.find(params[:id])
+        @restaurant = current_user.restaurants.find(params[:id])
     end
 
     def new
@@ -19,9 +18,13 @@ class RestaurantsController < ApplicationController
 
     def create
         @restaurant = Restaurant.new(restaurant_params)
+        # @restaurant.user = current_user
+
         if @restaurant.save
+            flash[:notice] = 'Restaurant added to list!'
             redirect_to restaurant_path(@restaurant)
         else
+            flash[:error] = @restaurant.errors.full_messages.join(', ')
             render :new
         end
     end
