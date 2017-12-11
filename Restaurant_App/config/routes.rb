@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root to: 'restaurants#index'
+  root to: 'session#new'
   resources :restaurants
 
   # could also include index, i guess if there was a reason to show all users?
