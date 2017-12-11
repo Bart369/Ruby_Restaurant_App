@@ -18,7 +18,7 @@ class RestaurantsController < ApplicationController
 
     def create
         @restaurant = Restaurant.new(restaurant_params)
-        # @restaurant.user = current_user
+        @restaurant.user = current_user
 
         if @restaurant.save
             flash[:notice] = 'Restaurant added to list!'
