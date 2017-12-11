@@ -22,16 +22,16 @@ class SessionsController < ApplicationController
             render :new
         end
 
-          def destroy
-            sign_out
-            flash[:notice] = 'You signed out!'
-            redirect_to new_session_path
-        end
+    def destroy
+        sign_out
+        flash[:notice] = 'You signed out!'
+        redirect_to new_session_path
+    end
 
-        private
+    private
 
-        def user_params
-            params.require(:user).permit(:username, :password)
-        end
+    def user_params
+        params.require(:user).permit(:username, :password)
+    end
 
 end
