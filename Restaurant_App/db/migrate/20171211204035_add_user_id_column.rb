@@ -3,6 +3,6 @@ class AddUserIdColumn < ActiveRecord::Migration[5.1]
   # I dont think add_column :restaurants, :user, index: true would have worked
   # since it has to belong to a a specific user?
   def change
-    add_belongs_to :restaurants, :user, index: true
+    add_belongs_to :restaurants, :user
   end
 end

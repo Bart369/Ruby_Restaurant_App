@@ -46,10 +46,10 @@ class ApplicationController < ActionController::Base
       redirect_to restaurants_path
     end
 
-
     def sign_out
+      return unless current_user
+      current_user.update!(session_token: nil)
       session.delete(:session_token)
-      current_user.update_attribute(:session_token, nil)
     end
   
 

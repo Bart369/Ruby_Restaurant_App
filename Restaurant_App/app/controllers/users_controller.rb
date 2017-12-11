@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    before_action :ensure_signed_in, only: [:show]
+    before_action :ensure_signed_in, only: [:index, :show]
 
     # user must be signed out before visiting these routes
     before_action :ensure_signed_out, only: [:new, :create]
