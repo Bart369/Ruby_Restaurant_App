@@ -33,6 +33,11 @@ class ApplicationController < ActionController::Base
     #the first time the app searches for current user it will run the methods 
     # in find_current_user, but every other time the info will be cached (stored)
     # so it wont have to run the methods again making finding current much cheaper 
+
+    def sign_out
+      session.delete(:session_token)
+      current_user.update_attribute(:session_token, nil)
+    end
   
 
 end
