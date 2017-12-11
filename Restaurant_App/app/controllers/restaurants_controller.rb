@@ -4,11 +4,13 @@ class RestaurantsController < ApplicationController
     before_action :ensure_signed_in
 
     def index
-        @restaurants = Restaurant.all
+        # @restaurants = Restaurant.all changed to the below
+        @restaurants = current_user.restaurants.all
+        
     end
 
     def show
-        @restaurant = Restaurant.find(params[:id])
+        @restaurant = current_user.restaurant.find(params[:id])
     end
 
     def new

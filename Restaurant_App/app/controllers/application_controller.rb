@@ -38,6 +38,14 @@ class ApplicationController < ActionController::Base
       redirect_to root
     end
 
+    # to ensure a user is signed out before they can a see a page
+    # such as creating a new user
+    def ensure_signed_out
+      return unless current_user
+      flash[:error] = 'you are signed in so you cant see that'
+      redirect_to some_other_path
+    end
+
 
     def sign_out
       session.delete(:session_token)
