@@ -3,6 +3,10 @@
 
 <h1>Favorite Restaurants</h1>
 
+<% if @restaurants == nil %>
+<h1>You have no favorite restaurants </h1>
+
+<% else %>
 <ul>
     <% @restaurants.each do |restaurant|%>
 
@@ -10,5 +14,10 @@
     
     <% end %>
 </ul>
+
+<% end %>
+
+
+
 
 <button><%= link_to "Add new favorite restaurant", new_restaurant_path %></button>

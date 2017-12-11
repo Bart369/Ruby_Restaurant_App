@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
     def ensure_signed_out
       return unless current_user
       flash[:error] = 'you are signed in so you cant see that'
-      redirect_to some_other_path
+      redirect_to restaurants_path
     end
 
 

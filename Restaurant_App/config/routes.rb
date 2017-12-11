@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   
-  root to: 'session#new'
+  root to: 'sessions#new'
   resources :restaurants
 
-  # could also include index, i guess if there was a reason to show all users?
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :index, :show]
 
   # resource not resources
   resource :session, only: [:new, :create, :destroy] 

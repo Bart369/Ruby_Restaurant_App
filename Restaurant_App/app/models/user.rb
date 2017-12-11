@@ -1,6 +1,15 @@
 class User < ApplicationRecord
     
-    validates :password, length: (8..20), allow_nil: true
+    PASSWORD_LENGTH = (6..25)
+    USERNAME_LENGTH = (5..15)
+  
+    #these are Active Records methods
+    validates_presence_of :username
+    validates :username, length: USERNAME_LENGTH, uniqueness: true
+    validates :password, length: PASSWORD_LENGTH, allow_nil: true
+    
+    has_many :restaurants
+
     attr_reader :password
 
         # note: this is a class method
