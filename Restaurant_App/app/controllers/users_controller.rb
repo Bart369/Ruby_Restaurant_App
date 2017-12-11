@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         if @user.save
         sign_in(@user)
         flash[:notice] = 'You are signed in!'
-        redirect_to users_show_path
+        redirect_to restaurants_path
         else
         flash[:error] = @user.errors.full_messages.join(', ')
         render :new

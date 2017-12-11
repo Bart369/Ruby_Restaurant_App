@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         if user
             sign_in(user)
             flash[:notice] = "Hi, #{username}! You signed in!"
-            redirect_to some_path
+            redirect_to restaurants_path
         else
             flash[:error] = 'Username or password incorrect'
             @user = User.new(username: username)
